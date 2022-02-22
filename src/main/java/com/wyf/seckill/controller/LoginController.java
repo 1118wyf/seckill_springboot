@@ -37,7 +37,7 @@ public class LoginController {
 
     @ResponseBody
     @RequestMapping("do_login")
-    public Result<Boolean> doLogin(HttpServletResponse response, @Valid LoginVo loginVo){
+    public Result<String> doLogin(HttpServletResponse response, @Valid LoginVo loginVo){
         log.info(loginVo.toString());
         //使用JSR303参数校验，就不用这种校验方法了
 //        //参数校验
@@ -59,8 +59,8 @@ public class LoginController {
 //        }else{
 //            return Result.error(codeMsg);
 //        }
-        seckillUserService.login(response, loginVo);
-        return Result.success(true);
+       String token = seckillUserService.login(response, loginVo);
+        return Result.success(token);
     }
 
 }

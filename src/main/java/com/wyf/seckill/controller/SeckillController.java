@@ -43,6 +43,9 @@ public class SeckillController {
     SeckillService seckillService;
 
     private  final Logger log = LoggerFactory.getLogger(SeckillController.class);
+    /**
+     * 使用jMeter进行压测：5000个线程， 0秒启动，循环10次， 测试结果 QPS为：2585 /s
+     */
     @RequestMapping("do_seckill")
     //@ResponseBody
     public String list(Model model, SeckillUser user, @RequestParam long goodsId){
