@@ -30,11 +30,11 @@ public class RedisService {
            String realKey = prefix.getPrefix() + key;
            int seconds = prefix.expireSecond();
            String str = jedis.get(realKey);
-           if(seconds <= 0){
-               jedis.set(realKey,str);
-           } else {
-               jedis.setex(realKey,seconds, str);
-           }
+//           if(seconds <= 0){
+//               jedis.set(realKey,str);
+//           } else {
+//               jedis.setex(realKey,seconds, str);
+//           }
             T t = stringToBean(str, clazz);
             return t;
         }finally {
